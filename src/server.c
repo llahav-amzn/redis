@@ -1983,12 +1983,6 @@ void initServerConfig(void) {
 
     /* Debugging */
     server.watchdog_period = 0;
-
-    /* in case cluster mode is enabled dbnum must be 1 */
-    if (server.cluster_enabled && server.dbnum > 1){
-        serverLog(LL_WARNING, "changing databases number from %d to 1 since we are in cluster mode", server.dbnum);
-        server.dbnum = 1;
-    }
 }
 
 extern char **environ;
